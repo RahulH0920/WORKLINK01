@@ -1,0 +1,99 @@
+.postjob-error {
+  background: rgba(255, 107, 107, .08);
+  color: var(--coral);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.postjob-tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  min-height: 44px;
+  align-items: center;
+  transition: border .15s;
+}
+.postjob-tags-input:focus-within { border-color: var(--teal); }
+
+.postjob-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.postjob-tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  opacity: .6;
+  padding: 0;
+  color: inherit;
+}
+.postjob-tag button:hover { opacity: 1; }
+
+.postjob-tag-input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: var(--font-body);
+  flex: 1;
+  min-width: 120px;
+  background: transparent;
+}
+
+.postjob-quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.postjob-quick-tag {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: var(--font-body);
+  transition: all .15s;
+}
+.postjob-quick-tag:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.postjob-quick-tag:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.postjob-preview {
+  position: sticky;
+  top: 100px;
+}
+.postjob-preview-card {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.postjob-success {
+  text-align: center;
+  padding: 64px 32px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.postjob-success-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+.postjob-success h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 8px;
+}

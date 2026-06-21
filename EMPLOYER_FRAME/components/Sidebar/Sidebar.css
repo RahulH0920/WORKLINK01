@@ -1,0 +1,67 @@
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px; height: 100vh; background: var(--ink);
+  display: flex; flex-direction: column; padding: 28px 0;
+  flex-shrink: 0; overflow-y: auto;
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 24px 28px; border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.logo-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--teal), var(--indigo));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 18px;
+}
+.logo-text { font-family: var(--font-display); font-weight: 700; color: #fff; font-size: 18px; }
+
+/* ── Nav ── */
+.nav { flex: 1; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; }
+.nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; border-radius: 10px; cursor: pointer;
+  color: rgba(255,255,255,.55); font-size: 14px; font-weight: 500;
+  transition: all .18s;
+  border: none; background: none; width: 100%; text-align: left;
+}
+.nav-item:hover { color: #fff; background: rgba(255,255,255,.07); }
+.nav-item.active { color: #fff; background: rgba(0,201,167,.18); }
+.nav-item.active .nav-icon { color: var(--teal); }
+.nav-icon { font-size: 18px; width: 20px; text-align: center; }
+
+.nav-section {
+  padding: 16px 14px 6px; font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(255,255,255,.25); font-weight: 600;
+}
+
+.nav-sub-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  font-size: 14px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-sub-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-sub-item.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sidebar { width: 64px; }
+  .logo-text, .nav-item span, .nav-section { display: none; }
+  .logo { padding: 0 14px 20px; }
+  .nav-item { justify-content: center; }
+}

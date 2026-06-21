@@ -1,0 +1,83 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Profile Nudge Banner — Dashboard completion prompt
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.profile-nudge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, .04);
+  border: 1px solid rgba(37, 99, 235, .1);
+}
+
+.nudge-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.nudge-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.nudge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nudge-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.nudge-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nudge-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.nudge-bar {
+  width: 100px;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.nudge-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent);
+  transition: width 0.5s ease;
+}
+
+.nudge-btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .profile-nudge {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nudge-right {
+    justify-content: space-between;
+  }
+}

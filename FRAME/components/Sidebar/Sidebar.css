@@ -1,0 +1,119 @@
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #fff;
+  font-size: 15px;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+/* ── Nav ── */
+.nav {
+  flex: 1;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, .5);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all .15s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  color: rgba(255, 255, 255, .85);
+  background: rgba(255, 255, 255, .06);
+}
+.nav-item.active {
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
+}
+.nav-item.active .nav-icon {
+  color: #fff;
+}
+.nav-icon {
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+}
+
+.nav-section {
+  padding: 14px 12px 6px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .2);
+  font-weight: 600;
+}
+
+.nav-sub-item {
+  padding: 7px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+  font-size: 13px;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+.nav-sub-item:hover {
+  color: rgba(255, 255, 255, .8);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-sub-item.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sidebar { width: 56px; }
+  .logo-text, .nav-item span, .nav-section { display: none; }
+  .logo { padding: 0 12px 20px; }
+  .nav-item { justify-content: center; }
+}

@@ -1,0 +1,13 @@
+.trust-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.trust-ring     { position: relative; }
+.trust-ring svg { transform: rotate(-90deg); }
+
+.trust-ring-value {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+
+.trust-ring-num { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; }
+.trust-ring-lbl { font-size: 11px; color: var(--muted); }
+.trust-label    { font-size: 12px; font-weight: 600; }
