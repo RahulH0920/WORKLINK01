@@ -50,3 +50,30 @@ export const protect = async (req, res, next) => {
     return res.status(401).json({ success: false, message: 'Not authorized — invalid token' });
   }
 };
+
+// ── Optional Auth middleware — decode token if present, but do not fail if missing ──
+export const optionalProtect = async (req, res, next) => {
+  let token;
+
+  if (req.headers.authorization?.startsWith('Bearer')) {
+    token = req.headers.authorization.split(' ')[1];
+  }
+
+  if (!token) {
+    return next();
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.userId = decoded.id;
+
+    const mongoose = (await import('mongoose')).default;
+    const User = mongoose.model('User');
+    req.user = await User.findById(decoded.id).select('-password');
+  } catch (err) {
+    // invalid token, continue unauthenticated
+  }
+
+  next();
+};
+

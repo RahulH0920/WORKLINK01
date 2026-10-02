@@ -1,13 +1,14 @@
 {
-  "name": "major",
+  "name": "worklink-platform",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "WorkLink — Unified Verified Gig Platform for Job Seekers and Employers",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node server/index.js",
+    "client": "npm run dev --prefix FRONTEND/SEEK_FRAME",
+    "dev": "npm run client"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "license": "ISC"
 }

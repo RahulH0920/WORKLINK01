@@ -95,6 +95,47 @@ const seedData = async () => {
       }
     }
 
+    // Seed sample jobs for Priya Patel (Employer) if no jobs exist
+    const priya = await User.findOne({ email: 'priya.p@example.com' });
+    if (priya) {
+      const existingJobsCount = await Job.countDocuments();
+      if (existingJobsCount === 0) {
+        await Job.create([
+          {
+            employer: priya._id,
+            title: 'Frontend React Developer for E-Commerce Platform',
+            type: 'Freelance',
+            location: 'Bengaluru (Hybrid)',
+            pay: '₹1,200/hr',
+            description: 'Looking for an experienced React developer to build interactive product pages, checkout flows, and integrate REST APIs. Minimum 1+ year experience with React, Tailwind or CSS flexbox/grid.',
+            tags: ['React', 'JavaScript', 'CSS', 'REST API'],
+            status: 'active'
+          },
+          {
+            employer: priya._id,
+            title: 'Social Media Content & Graphic Designer',
+            type: 'Part-time',
+            location: 'Remote',
+            pay: '₹15,000 / month',
+            description: 'Create high-converting visual assets, Instagram reels covers, and LinkedIn banner templates for growing tech startups. Proficiency in Figma or Canva required.',
+            tags: ['Design', 'Figma', 'Marketing', 'Social Media'],
+            status: 'active'
+          },
+          {
+            employer: priya._id,
+            title: 'Python Data Extraction & Scraping Specialist',
+            type: 'Short-term',
+            location: 'Remote',
+            pay: '₹8,000 fixed',
+            description: 'Build clean, robust Python web scrapers using BeautifulSoup / Playwright to collect structured e-commerce prices. Must export cleaned JSON/CSV datasets.',
+            tags: ['Python', 'Web Scraping', 'Data Entry'],
+            status: 'active'
+          }
+        ]);
+        console.log('Sample job listings created.');
+      }
+    }
+
     console.log('Seeding completed successfully!');
     process.exit(0);
   } catch (error) {

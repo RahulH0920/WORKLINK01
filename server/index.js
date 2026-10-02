@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -16,6 +16,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+dotenv.config({ path: path.join(__dirname, '.env') });
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -23,7 +25,7 @@ const PORT = process.env.PORT || 5000;
 app.use(helmet({ crossOriginResourcePolicy: false })); // allow serving uploaded files cross-origin
 
 // ── CORS ──
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'] }));
+app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'] })); // 5173=seeker, 5174=employer
 
 // ── Body parser ──
 app.use(express.json());

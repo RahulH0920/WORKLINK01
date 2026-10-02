@@ -1,6 +1,6 @@
 import express from 'express';
 import { body, validationResult } from 'express-validator';
-import { protect } from '../middleware/auth.js';
+import { protect, optionalProtect } from '../middleware/auth.js';
 import Job from '../models/Job.js';
 
 const router = express.Router();
@@ -39,19 +39,19 @@ router.post(
   }
 );
 
-/* ── Get jobs (Employer gets own, Seeker gets all active) ── */
-router.get('/', protect, async (req, res) => {
+/* ── Get jobs (Employer gets own, Seeker & Guests get all active) ── */
+router.get('/', optionalProtect, async (req, res) => {
   try {
-    if (req.user.role === 'employer') {
+    if (req.user && req.user.role === 'employer') {
       // Employer sees their own jobs with applicant details populated
       const jobs = await Job.find({ employer: req.userId })
         .populate('applications.applicant', 'firstName lastName email role trustScore isVerified')
         .sort({ createdAt: -1 });
       return res.json({ success: true, jobs });
     } else {
-      // Seeker sees all active jobs
+      // Seeker or Guest sees all active jobs
       const jobs = await Job.find({ status: 'active' })
-        .populate('employer', 'firstName lastName trustScore isVerified')
+        .populate('employer', 'firstName lastName trustScore isVerified email')
         .sort({ createdAt: -1 });
       return res.json({ success: true, jobs });
     }

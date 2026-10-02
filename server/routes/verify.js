@@ -1,20 +1,12 @@
 import express from 'express';
 import { validateAadhaar, validatePAN } from '../utils/validators.js';
+import { protect } from '../middleware/auth.js';
+import DocumentRecord from '../models/DocumentRecord.js';
 import multer from 'multer';
 import fs from 'fs';
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   MODE DETECTION
-   ─────────────────────────────────────────────────────────────────────────
-   If Cashfree credentials are configured → use real API (production/sandbox)
-   If not configured → fall back to local algorithmic validation only:
-     • Aadhaar → Verhoeff checksum algorithm (catches all substitution &
-       transposition errors)
-     • PAN → Format + entity type regex validation
-   ═══════════════════════════════════════════════════════════════════════════ */
 
 const CASHFREE_CONFIGURED =
   process.env.CASHFREE_CLIENT_ID &&
@@ -46,25 +38,54 @@ if (CASHFREE_CONFIGURED) {
    AADHAAR VERIFICATION
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Step 1: Send OTP (or validate locally) ── */
-router.post('/aadhaar/send-otp', async (req, res) => {
+router.post('/aadhaar/send-otp', protect, async (req, res) => {
   try {
     const { aadhaarNumber } = req.body;
 
-    // Always run local Verhoeff validation first
+    // Step 1: Always run Verhoeff checksum validation first
     const localCheck = validateAadhaar(aadhaarNumber);
     if (!localCheck.valid) {
       return res.status(400).json({ success: false, message: localCheck.message });
     }
 
-    /* ── LOCAL MODE: Verhoeff passed → verified immediately ── */
+    /* ── LOCAL MODE: Verhoeff passed → check against MongoDB records ── */
     if (!Cashfree) {
+      const cleanNumber = aadhaarNumber.replace(/[\s-]/g, '');
+
+      // Step 2: Look up in database
+      const record = await DocumentRecord.findOne({ docType: 'aadhaar', docNumber: cleanNumber });
+
+      if (!record) {
+        return res.status(404).json({
+          success: false,
+          message: 'Aadhaar number not found in records. Verhoeff checksum passed but no matching entry exists in the database.',
+          method: 'database_lookup',
+        });
+      }
+
+      // Step 3: Check if already used by another user
+      if (record.usedBy && record.usedBy.toString() !== req.userId) {
+        return res.status(409).json({
+          success: false,
+          message: 'This Aadhaar number is already linked to another account.',
+          alreadyUsed: true,
+          method: 'database_lookup',
+        });
+      }
+
+      // Step 4: Mark as used by this user
+      if (!record.usedBy) {
+        record.usedBy = req.userId;
+        await record.save();
+      }
+
       return res.json({
         success: true,
-        verified: true,                             // ← directly verified
+        verified: true,
         ref_id: `local_${Date.now()}`,
-        message: `Aadhaar verified — Verhoeff checksum passed (${localCheck.masked})`,
-        method: 'verhoeff_checksum',
+        message: `Aadhaar verified — matches record for ${record.holderName} (${localCheck.masked})`,
+        holderName: record.holderName,
+        method: 'database_lookup',
         localMode: true,
       });
     }
@@ -94,7 +115,7 @@ router.post('/aadhaar/send-otp', async (req, res) => {
 
 
 /* ── Step 2: Verify OTP (only needed in API mode) ── */
-router.post('/aadhaar/verify-otp', async (req, res) => {
+router.post('/aadhaar/verify-otp', protect, async (req, res) => {
   try {
     const { refId, otp } = req.body;
 
@@ -113,7 +134,6 @@ router.post('/aadhaar/verify-otp', async (req, res) => {
     const request = { ref_id: refId, otp: otp };
     const response = await Cashfree.VrsAadhaarOtpVerifyOtp(request);
 
-    // response.data contains: name, dob, gender, address, photo (base64)
     res.json({
       success: true,
       verified: true,
@@ -135,24 +155,54 @@ router.post('/aadhaar/verify-otp', async (req, res) => {
    PAN VERIFICATION
    ═══════════════════════════════════════════════════════════════════════════ */
 
-router.post('/pan', async (req, res) => {
+router.post('/pan', protect, async (req, res) => {
   try {
     const { panNumber } = req.body;
 
-    // Always run local regex + entity type validation
+    // Step 1: Always run PAN regex + entity type validation first
     const localCheck = validatePAN(panNumber);
     if (!localCheck.valid) {
       return res.status(400).json({ success: false, message: localCheck.message });
     }
 
-    /* ── LOCAL MODE: Regex + entity type passed → verified ── */
+    /* ── LOCAL MODE: Regex passed → check against MongoDB records ── */
     if (!Cashfree) {
+      const cleanPAN = panNumber.toUpperCase().trim();
+
+      // Step 2: Look up in database
+      const record = await DocumentRecord.findOne({ docType: 'pan', docNumber: cleanPAN });
+
+      if (!record) {
+        return res.status(404).json({
+          success: false,
+          message: 'PAN not found in records. Format is valid but no matching entry exists in the database.',
+          method: 'database_lookup',
+        });
+      }
+
+      // Step 3: Check if already used by another user
+      if (record.usedBy && record.usedBy.toString() !== req.userId) {
+        return res.status(409).json({
+          success: false,
+          message: 'This PAN number is already linked to another account.',
+          alreadyUsed: true,
+          method: 'database_lookup',
+        });
+      }
+
+      // Step 4: Mark as used by this user
+      if (!record.usedBy) {
+        record.usedBy = req.userId;
+        await record.save();
+      }
+
       return res.json({
         success: true,
         valid: true,
-        message: `Valid PAN — ${localCheck.entityType} (${panNumber.toUpperCase()})`,
+        message: `Valid PAN — ${record.holderName} (${cleanPAN})`,
+        holderName: record.holderName,
         entityType: localCheck.entityType,
-        method: 'pan_regex_validation',
+        method: 'database_lookup',
         localMode: true,
       });
     }
@@ -165,7 +215,6 @@ router.post('/pan', async (req, res) => {
 
     const response = await Cashfree.VrsPanVerification(request);
 
-    // response.data contains: name_provided, registered_name, pan, status (VALID/INVALID)
     res.json({
       success: true,
       valid: response.data.status === 'VALID',
@@ -245,7 +294,7 @@ router.get('/mode', (req, res) => {
     mode: Cashfree ? 'api' : 'local',
     description: Cashfree
       ? 'Cashfree API — real-time government database verification'
-      : 'Local validation — Verhoeff checksum (Aadhaar) + regex (PAN)',
+      : 'Local validation — Verhoeff checksum (Aadhaar) + regex (PAN) + MongoDB lookup',
   });
 });
 

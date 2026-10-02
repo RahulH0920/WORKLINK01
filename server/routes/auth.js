@@ -5,9 +5,6 @@ import { generateToken, protect } from '../middleware/auth.js';
 
 const router = express.Router();
 
-/* ═══════════════════════════════════════════
-   POST /api/auth/register
-   ═══════════════════════════════════════════ */
 router.post(
   '/register',
   [
@@ -200,9 +197,6 @@ router.post(
   }
 );
 
-/* ═══════════════════════════════════════════
-   GET /api/auth/me   (protected)
-   ═══════════════════════════════════════════ */
 router.get('/me', protect, async (req, res) => {
   try {
     const user = await User.findById(req.userId);
