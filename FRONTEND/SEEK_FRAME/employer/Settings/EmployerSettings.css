@@ -1,0 +1,355 @@
+/* ══════════════════════════════════════════════════════════════
+   WorkLink Employer Settings — Production Stylesheet (Step 12)
+   ══════════════════════════════════════════════════════════════ */
+
+.emp-settings-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 32px 64px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emp-settings-header {
+  margin-bottom: 4px;
+}
+
+.emp-settings-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.emp-settings-subtitle {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* 2-Column Settings Layout */
+.emp-settings-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* Left Settings Navigation */
+.emp-settings-nav-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+.emp-settings-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.emp-settings-tab-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.emp-settings-tab-btn.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.emp-settings-tab-btn.danger-tab {
+  color: #dc2626;
+}
+
+.emp-settings-tab-btn.danger-tab.active {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.emp-settings-nav-icon {
+  font-size: 17px;
+}
+
+/* Right Settings Content */
+.emp-settings-content-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.emp-settings-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emp-settings-section-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.emp-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.emp-settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.emp-settings-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.emp-settings-input,
+.emp-settings-select,
+.emp-settings-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.emp-settings-input:focus,
+.emp-settings-select:focus,
+.emp-settings-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.emp-settings-input[readonly] {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+/* Info Row Card with action button */
+.emp-settings-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  gap: 16px;
+}
+
+.emp-settings-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.emp-settings-row-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.emp-settings-row-sub {
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.emp-settings-action-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.emp-settings-action-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Toggle Switches for Notifications */
+.emp-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.emp-toggle-row:last-child {
+  border-bottom: none;
+}
+
+.emp-toggle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 80%;
+}
+
+.emp-toggle-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.emp-toggle-desc {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Switch UI */
+.emp-switch-label {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.emp-switch-label input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emp-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #cbd5e1;
+  transition: 0.25s ease;
+  border-radius: 24px;
+}
+
+.emp-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.25s ease;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.emp-switch-label input:checked + .emp-switch-slider {
+  background-color: #2563eb;
+}
+
+.emp-switch-label input:checked + .emp-switch-slider:before {
+  transform: translateX(20px);
+}
+
+/* FAQ Accordion */
+.emp-faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.emp-faq-header {
+  padding: 14px 18px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #0f172a;
+}
+
+.emp-faq-body {
+  padding: 14px 18px;
+  background: #ffffff;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Toast alert */
+.emp-toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .emp-settings-layout {
+    grid-template-columns: 1fr;
+  }
+  .emp-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

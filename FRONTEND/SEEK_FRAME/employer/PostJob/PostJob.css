@@ -1,0 +1,1271 @@
+/* ── Post Job Page Styles (WorkLink Redesign) ── */
+
+.postjob-page-root {
+  padding: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #0f172a;
+}
+
+/* ── 1. Main Page Header ── */
+.postjob-hero-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.postjob-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.postjob-main-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.postjob-subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.postjob-escrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.escrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 6px #16a34a;
+}
+
+/* ── 2. Progress Stepper (1 to 5) ── */
+.postjob-stepper-wrap {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.postjob-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.stepper-node {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  min-width: 140px;
+  transition: all 0.2s ease;
+}
+
+.stepper-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.stepper-node.active .stepper-circle {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.stepper-node.completed .stepper-circle {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.stepper-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepper-number-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stepper-title-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.stepper-node.active .stepper-title-text {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.stepper-connector {
+  flex: 1;
+  height: 2px;
+  background: #e2e8f0;
+  margin-left: 12px;
+}
+
+.stepper-node.completed .stepper-connector {
+  background: #10b981;
+}
+
+/* ── Error Banner ── */
+.postjob-alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  animation: slideDown 0.2s ease-out;
+}
+
+.alert-dismiss {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* ── 3. Content Layout (Left Form + Right Sticky Preview) ── */
+.postjob-content-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+.postjob-form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Card Container */
+.postjob-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.payment-highlight-card {
+  border-top: 4px solid #2563eb;
+}
+
+.card-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.section-step-tag {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.payment-tag {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.success-tag {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.card-section-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.card-section-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Form Controls */
+.pj-form-group {
+  margin-bottom: 20px;
+}
+
+.pj-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pj-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.pj-label .req {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.pj-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-count {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.pj-input-wrap,
+.pj-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pj-input,
+.pj-select,
+.pj-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.pj-input-wrap .pj-input {
+  padding-right: 40px;
+}
+
+.pj-input:focus,
+.pj-select:focus,
+.pj-textarea:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.pj-input-icon {
+  position: absolute;
+  right: 14px;
+  font-size: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.pj-select-wrap select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+}
+
+.pj-select-arrow {
+  position: absolute;
+  right: 14px;
+  font-size: 10px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.pj-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+
+.pj-hint {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+/* Skills Cloud */
+.skills-chips-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.skill-chip-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  padding: 7px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.skill-chip-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.skill-chip-btn.selected {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+.chip-check {
+  font-size: 11px;
+}
+
+.add-custom-skill-row {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-skill-input {
+  flex: 1;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.custom-skill-input:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+}
+
+.add-skill-action-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-skill-action-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+/* Job Types Grid */
+.job-types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.job-type-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.job-type-card:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.job-type-card.selected {
+  border-color: #2563eb;
+  background: #f0f7ff;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.jt-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.job-type-card.selected .jt-radio {
+  border-color: #2563eb;
+}
+
+.radio-dot.active {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.jt-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.jt-title {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.jt-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Workers Counter */
+.workers-counter-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.counter-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.counter-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.counter-input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  outline: none;
+}
+
+.counter-label {
+  padding-right: 12px;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Payment Section Styling */
+.payment-type-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.payment-pill-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.payment-pill-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.payment-pill-btn.active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+
+.pill-check {
+  font-size: 11px;
+}
+
+.pj-amount-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 4px 14px;
+  max-width: 320px;
+}
+
+.pj-amount-input-wrap:focus-within {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.currency-prefix {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2563eb;
+  margin-right: 6px;
+}
+
+.pj-amount-input {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  outline: none;
+  width: 100%;
+}
+
+.amount-unit {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.estimated-total-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+
+.et-sub {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  text-transform: uppercase;
+}
+
+.et-figure {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1d4ed8;
+  margin: 2px 0;
+}
+
+.et-note {
+  font-size: 12px;
+  color: #3b82f6;
+}
+
+.et-badge {
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e40af;
+  box-shadow: 0 2px 6px rgba(30, 64, 175, 0.12);
+}
+
+.escrow-info-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.escrow-info-notice p {
+  margin: 4px 0 0;
+  line-height: 1.45;
+}
+
+/* Requirements Checkboxes */
+.verif-checkboxes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.verif-check-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.verif-check-card:hover {
+  background: #ffffff;
+  border-color: #2563eb;
+}
+
+.verif-check-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.verif-title {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.verif-desc {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Review Section */
+.review-summary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-hero-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.rh-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rh-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.rh-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.rh-pay-badge {
+  font-size: 18px;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.review-grid-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.rg-item {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rg-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.rg-val {
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.rg-desc-text {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #334155;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.review-verif-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.rv-tag {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── 9. Bottom Action Bar ── */
+.postjob-bottom-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.action-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action-btn.back {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.action-btn.back:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.action-btn.draft {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+.action-btn.draft:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.action-btn.preview-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #2563eb;
+}
+
+.action-btn.preview-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.action-btn.next-primary {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.action-btn.next-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.action-btn.next-primary.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── 8. Job Preview Card (Right Column) ── */
+.postjob-preview-column {
+  position: relative;
+}
+
+.preview-sticky-card {
+  position: sticky;
+  top: 90px;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.preview-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.preview-tip {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.preview-job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s ease;
+}
+
+.preview-job-card:hover {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+.pjc-title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.pjc-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.pjc-icon {
+  font-size: 15px;
+}
+
+.pjc-pay {
+  color: #10b981;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.pjc-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+}
+
+.preview-skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.preview-skill-pill {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.pjc-type-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pjc-type-tag {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pjc-card-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pjc-company-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pjc-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pjc-company-name {
+  display: block;
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.pjc-trust-badge {
+  font-size: 10px;
+  color: #059669;
+  font-weight: 700;
+}
+
+.preview-job-action-btn {
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.preview-job-action-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.preview-guarantee-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.preview-guarantee-note p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pg-icon {
+  font-size: 16px;
+}
+
+/* ── Preview Modal ── */
+.preview-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.preview-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.25s ease-out;
+}
+
+.preview-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.preview-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.preview-close-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pm-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pm-avatar-large {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.pm-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.pm-meta-row {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.pm-pay-badge {
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.pm-section h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.pm-mock-apply {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mock-apply-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* Animations */
+.card-slide-in {
+  animation: cardIn 0.25s ease-out;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive Queries ── */
+@media (max-width: 1024px) {
+  .postjob-content-layout {
+    grid-template-columns: 1fr;
+  }
+  .preview-sticky-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .postjob-page-root {
+    padding: 16px;
+  }
+  .postjob-hero-header {
+    flex-direction: column;
+  }
+  .pj-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .job-types-grid {
+    grid-template-columns: 1fr;
+  }
+  .postjob-stepper {
+    justify-content: flex-start;
+  }
+  .postjob-bottom-action-bar {
+    position: sticky;
+    bottom: 12px;
+    z-index: 40;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+  }
+}

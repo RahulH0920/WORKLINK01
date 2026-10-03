@@ -1,0 +1,9 @@
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+}
+.pill-green { background: rgba(22, 163, 74, .1); color: var(--green-d); }
+.pill-amber { background: rgba(234, 88, 12, .1); color: var(--orange); }
+.pill-red   { background: rgba(220, 38, 38, .1); color: var(--red); }
+.pill-blue  { background: rgba(37, 99, 235, .1); color: var(--accent); }
+.pill-gray  { background: var(--line); color: var(--muted); }

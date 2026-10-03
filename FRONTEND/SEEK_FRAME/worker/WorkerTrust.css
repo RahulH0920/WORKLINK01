@@ -1,0 +1,316 @@
+/* ── WorkLink Worker Trust & Verification Page Styles (Step 9) ── */
+
+.wrk-trust-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 32px 64px;
+  width: 100%;
+}
+
+/* Page Header */
+.wrk-trust-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wrk-trust-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.wrk-trust-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Hero Score Card */
+.wrk-trust-hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.wrk-trust-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.wrk-trust-score-badge {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+  flex-shrink: 0;
+}
+
+.wrk-trust-score-number {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.wrk-trust-score-label {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.85;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.wrk-trust-hero-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wrk-trust-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wrk-trust-overall-status {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.wrk-trust-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+/* Verification Message Alert */
+.wrk-trust-message-alert {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wrk-trust-message-alert.status-verified {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.wrk-trust-message-alert.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.wrk-trust-message-alert.status-failed {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Two Column Layout */
+.wrk-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.wrk-trust-section-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wrk-trust-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 14px;
+}
+
+.wrk-trust-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Check Item Row */
+.wrk-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wrk-check-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.wrk-check-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wrk-check-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wrk-check-desc {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Status Pill */
+.wrk-check-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.wrk-check-pill.verified {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.wrk-check-pill.pending {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.wrk-check-pill.failed {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Document Item Row */
+.wrk-doc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  gap: 14px;
+}
+
+.wrk-doc-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wrk-doc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.wrk-doc-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wrk-doc-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wrk-doc-masked-number {
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 992px) {
+  .wrk-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrk-trust-page-container {
+    padding: 18px 16px 48px;
+    gap: 18px;
+  }
+
+  .wrk-trust-hero-card {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wrk-trust-hero-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

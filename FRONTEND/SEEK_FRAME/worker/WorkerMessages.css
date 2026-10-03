@@ -1,0 +1,7 @@
+/* WorkerMessages.css — Modern WhatsApp Style Chat Layout for Workers */
+@import '../employer/Messages/EmployerMessages.css';
+
+/* Any worker-specific adjustments if needed */
+.whatsapp-chat-page {
+  width: 100%;
+}

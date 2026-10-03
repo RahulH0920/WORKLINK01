@@ -1,0 +1,700 @@
+/* ── WorkLink Universal Payment Receipt & Advance Modal Styles ── */
+
+@keyframes wlFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes wlSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Overlay */
+.wl-advance-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  z-index: 1300;
+  animation: wlFadeIn 0.2s ease-out;
+}
+
+/* Modal Container Card */
+.wl-advance-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 32px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: wlSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* Custom Scrollbar for Modal */
+.wl-advance-modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+.wl-advance-modal-card::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Header */
+.wl-advance-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+.wl-advance-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.wl-advance-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.wl-advance-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin: 6px 0 0;
+  line-height: 1.45;
+}
+
+/* Candidate & Job Summary Strip */
+.wl-advance-candidate-strip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.wl-candidate-name-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wl-candidate-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wl-candidate-job {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Calculation Breakdown Card */
+.wl-advance-calc-box {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wl-calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.wl-calc-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.wl-calc-val {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wl-calc-row.fee-row .wl-calc-val {
+  color: #2563eb;
+}
+
+.wl-calc-row.total-row {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.wl-calc-row.total-row .wl-calc-label {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wl-calc-row.total-row .wl-calc-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.wl-advance-highlight-section {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.wl-advance-highlight-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wl-advance-highlight-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: #166534;
+}
+
+.wl-advance-highlight-val {
+  font-size: 19px;
+  font-weight: 900;
+  color: #15803d;
+}
+
+.wl-remaining-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #4b5563;
+  padding-top: 6px;
+  border-top: 1px dashed #bbf7d0;
+}
+
+/* Agreement Checkbox Box */
+.wl-advance-agree-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wl-advance-agree-box:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.wl-advance-agree-box input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #16a34a;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.wl-advance-agree-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+  user-select: none;
+}
+
+/* Modal Actions */
+.wl-advance-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 18px;
+}
+
+.wl-advance-btn-pay {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wl-advance-btn-pay:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+}
+
+.wl-advance-btn-pay:disabled {
+  background: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* ═══════════════════════════════════════════════════
+   PREMIUM PAYMENT & EARNINGS RECEIPT STYLES
+   ═══════════════════════════════════════════════════ */
+
+.wl-advance-receipt-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.wl-receipt-card-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  padding: 32px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  animation: wlSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Success / Settled Header Badge */
+.wl-receipt-success-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  border-radius: 16px;
+  padding: 16px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wl-receipt-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #059669;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.28);
+}
+
+.wl-receipt-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wl-receipt-headline {
+  font-size: 18px;
+  font-weight: 800;
+  color: #065f46;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.wl-receipt-subheadline {
+  font-size: 13px;
+  font-weight: 500;
+  color: #047857;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Receipt Paper Body Card */
+.wl-receipt-paper-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+/* Receipt Brand Row */
+.wl-receipt-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 16px;
+}
+
+.wl-receipt-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wl-receipt-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.wl-receipt-brand-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.wl-receipt-title-badge {
+  text-align: right;
+}
+
+.wl-receipt-doc-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.wl-receipt-status-pill,
+.pill-green-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  width: fit-content;
+}
+
+/* Meta Data Grid */
+.wl-receipt-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 18px;
+  background: #f8fafc;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+}
+
+.wl-receipt-meta-item,
+.wl-receipt-meta-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wl-receipt-meta-label,
+.wl-meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.wl-receipt-meta-val,
+.wl-meta-val {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.wl-receipt-meta-val.txn-id,
+.wl-meta-val.code-val {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 2px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.wl-meta-val.bold-val {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.wl-receipt-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 2px 0;
+}
+
+/* Amount Breakdown Table */
+.wl-receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.wl-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.wl-receipt-row:last-child {
+  border-bottom: none;
+}
+
+.wl-row-label {
+  color: #475569;
+  font-weight: 500;
+}
+
+.wl-row-val {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wl-receipt-row.text-muted .wl-row-label {
+  color: #64748b;
+}
+
+.wl-receipt-row.highlight-subtotal {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 6px;
+  font-weight: 700;
+}
+
+.wl-receipt-row.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 8px;
+}
+
+.wl-row-val.total-amt {
+  font-size: 20px;
+  font-weight: 900;
+  color: #15803d;
+}
+
+/* Plain HTML Table support for Advance Receipt */
+.wl-receipt-table tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.wl-receipt-table td {
+  padding: 10px 4px;
+  color: #475569;
+}
+
+.wl-receipt-table td.val-col {
+  text-align: right;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.wl-receipt-table tr.highlight-paid {
+  border-top: 1.5px solid #bbf7d0;
+  border-bottom: 1.5px solid #bbf7d0;
+  background: #f0fdf4;
+}
+
+.wl-receipt-table tr.highlight-paid td {
+  padding: 12px 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #166534;
+}
+
+.wl-receipt-table tr.highlight-paid td.val-col {
+  color: #15803d;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* Watermark Security Badge */
+.wl-receipt-watermark-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+/* Receipt Actions Footer */
+.wl-receipt-actions,
+.wl-receipt-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  flex-wrap: wrap;
+}
+
+.wl-receipt-actions .btn,
+.wl-receipt-action-buttons .btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wl-receipt-actions .btn-outline,
+.wl-receipt-action-buttons .wl-fee-btn-secondary {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+.wl-receipt-actions .btn-outline:hover,
+.wl-receipt-action-buttons .wl-fee-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.wl-receipt-actions .btn-primary,
+.wl-receipt-action-buttons .wl-fee-btn-primary {
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.wl-receipt-actions .btn-primary:hover,
+.wl-receipt-action-buttons .wl-fee-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+/* Printable Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .wl-advance-modal-overlay {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  .wl-receipt-card-container,
+  .wl-advance-receipt-view,
+  .wl-receipt-paper-card,
+  .wl-advance-modal-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+  .wl-receipt-action-buttons,
+  .wl-receipt-actions,
+  .wl-fee-close-btn {
+    display: none !important;
+  }
+}

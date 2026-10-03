@@ -1,0 +1,391 @@
+.profile-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.profile-hero:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.profile-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-avatar-lg {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  color: black;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.profile-role {
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.profile-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+
+
+.profile-hero-right {
+  flex-shrink: 0;
+}
+
+/* ── Tabs ── */
+.profile-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  margin: 20px 0;
+}
+
+.profile-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all .2s;
+}
+
+.profile-tab:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.profile-tab.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ── Quick Stats Grid ── */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.profile-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--surface);
+  transition: transform .2s;
+}
+
+.profile-stat-item:hover {
+  transform: translateY(-2px);
+}
+
+.profile-stat-icon {
+  font-size: 22px;
+}
+
+.profile-stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.profile-stat-label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── Bio ── */
+.profile-bio {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+  margin-top: 8px;
+}
+
+/* ── Documents ── */
+.doc-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.doc-row:last-child {
+  border-bottom: none;
+}
+
+.doc-icon {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Benefits ── */
+.benefit-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  transition: transform .2s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ── Reviews ── */
+.review-card {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.review-card:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.review-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink2);
+}
+
+@media (max-width: 700px) {
+  .profile-hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-hero-left {
+    flex-direction: column;
+  }
+
+  .profile-badges {
+    justify-content: center;
+  }
+
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+/* ── Empty States ── */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.empty-state h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.empty-state-mini {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.empty-state-mini .empty-state-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.empty-state-mini p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* ── Bio Edit ── */
+.bio-edit-area {
+  position: relative;
+}
+
+.bio-edit-area .textarea {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+}
+
+.bio-char-count {
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.bio-char-count .warn {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+/* ── Save Success ── */
+.save-success {
+  background: rgba(22, 163, 74, .08);
+  color: var(--green-d);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(22, 163, 74, .2);
+}
+
+/* ── Skills Edit ── */
+.skills-edit-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-edit-row,
+.skill-add-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.skill-add-row {
+  background: rgba(91, 108, 248, .04);
+  border: 1.5px dashed var(--line);
+}
+
+.skill-edit-name {
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.skill-slider {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--line);
+  border-radius: 99px;
+  outline: none;
+  cursor: pointer;
+}
+
+.skill-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, .4);
+}
+
+.skill-edit-level {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 36px;
+  text-align: right;
+}
+
+.skill-remove-btn {
+  background: none;
+  border: none;
+  color: var(--coral);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  opacity: .5;
+  transition: all .15s;
+}
+
+.skill-remove-btn:hover {
+  opacity: 1;
+  background: rgba(255, 107, 107, .1);
+}
+
+.skill-add-row .input {
+  flex: 1;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+}
